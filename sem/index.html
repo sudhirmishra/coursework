@@ -15,6 +15,7 @@
 	
   </head>
   <body ng-app="semApp" ng-cloak>
+
 	<md-content>
     <!-- The top toolbar -->
     <md-toolbar>
@@ -41,84 +42,45 @@
 				<md-content class="md-padding">
 					<md-tabs md-dynamic-height md-selected="selectedIndex" md-border-bottom md-autoselect>
 						<md-tab label="overview">
-							<md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
-    <div flex="50" layout="column">
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Large</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with  image</span>
-            <span class="md-subhead">Extra Large</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
-          <div class="md-media-xl card-media"></div>
-          <md-card-actions layout="column">
-            <md-button class="md-icon-button" aria-label="Favorite">
-				<i class="material-icons">favorite</i>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Settings">
-              <i class="material-icons">menu</i>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Share">
-				<i class="material-icons">share</i>
-            </md-button>
-          </md-card-actions>
-        </md-card-content>
-      </md-card>
-    </div>
-    <div flex="50" layout="column">
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Small</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Medium</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-md card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-    </div>
-  </md-content>
+							<md-content flex layout-padding>
+								<p>
+									In the course of Software Enginnering and Management @ BITS Pilani, the class was divided into four teams namely,
+									<ol>
+										<li>Li8 Technologies</li>
+										<li>D`Falcons</li>
+										<li>NDAARP</li>
+										<li>Cube-X</li>
+									</ol>
+								<p>
+									Each team had to propose a product idea, design and develop the product following all the principles of software engineering starting from software model, cost estimation to software testing and documentation.
+								</p>
+								<p>
+									<span class="md-title">Li8 Technologies</span> proposed the idea of a centralized Notice board for the students of BITS Pilani. <a href="http://nlite.herokuapp.com">NLite Web Admin</a> and <a href="https://play.google.com/store/apps/details?id=com.ndaarp.n_li8">NLite Mobile App</a>									
+								</p>
+								<p>
+									<span class="md-title">D'Falcons</span> proposed a college news aggregator to keep track of various technical and cultural events across premier colleges. <a href="http://college-khabar.herokuapp.com/">College Khabar</a>
+								</p>
+								<p>
+									<span class="md-title">NDAARP</span> proposed a personal assistace mobile app with smart priority system. <a href="https://play.google.com/store/apps/details?id=com.ndaarp.ndaarp_project.yourassist">Your Assist</a>
+								</p>
+								<p>
+									<span class="md-title">Cube-X</span> proposed an app that would connect student and professors of BITS Pilani along with providing basic information about BITS Pilani. <a href="https://play.google.com/store/apps/details?id=com.bits.android.stayontime">Stay On Time</a>
+								</p>
+								<p>
+									NB: The various links to the live apps of all the teams => Working as of 6/12/2015
+									
+								</p>
+							  </md-content>
+
 						</md-tab>
 						<md-tab ng-repeat="tab in tabs"
 						  ng-disabled="tab.disabled"
 						  label="{{tab.title}}">
-							<md-tabs md-dynamic-height md-border-bottom md-autoselect>
+							<md-content ng-if="tab.content.length==0">
+								<p class="md-display-2"> Coming Soon! </p>
+							</md-content>
+							<md-tabs ng-if="tab.content.length != 0" md-dynamic-height md-border-bottom md-autoselect>
+								
 								<md-tab ng-repeat="pdf in tab.content" label="{{title[$index]}}">
 									<md-card>
 										<md-card-title>
@@ -142,15 +104,25 @@
 										  </md-card-title-media>
 										</md-card-title>
 										<md-card-actions layout="row" layout-align="end center">
-										  <md-button>Action 1</md-button>
-										  <md-button>Action 2</md-button>
+										  <md-button>Download</md-button>										  
 										</md-card-actions>
 									</md-card>
 									
 								</md-tab>
 							</md-tabs>
 						</md-tab>
+						<md-tab label="conclusion">
+							<md-content flex layout-padding>
+								<p class="md-headline">
+									Focus on the process and not on the product.
+								</p>
+								<p>
+								For further clarifications reach out any member of the<a href="https://www.facebook.com/groups/488831567908551/"> facebook group of the batch.</a>
+								</p>
+							</md-content>
+						</md-tab>
 					</md-tabs>
+					
 				</md-content>
 			  
 			</div>

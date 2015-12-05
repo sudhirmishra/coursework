@@ -13,8 +13,8 @@ angular.module('semApp', ['ngMaterial']).controller('AppCtrl', AppCtrl);
           { title: 'Li8 Technologies', content: [
 					{
 						// Project Introduction and W52H
-						speakerdeck:'98168ce65b77402dbf4956bc8a2e92b8',		
-						desc:'After the swap',
+						speakerdeck:'98168ce65b77402dbf4956bc8a2e92b8',
+						
 					},
 					{
 						// Rapid Prototype - Wireframe
