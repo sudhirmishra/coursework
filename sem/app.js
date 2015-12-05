@@ -77,4 +77,7 @@ angular.module('semApp', ['ngMaterial']).controller('AppCtrl', AppCtrl);
       previous = selected;
       selected = tabs[current];
     })
+	$scope.getUrl = function(id){
+		return id;
+	}
   };
